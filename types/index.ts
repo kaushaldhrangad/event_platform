@@ -110,6 +110,9 @@ export type CheckoutOrderParams = {
   price: string
   isFree: boolean
   buyerId: string
+  // stripeId: string 
+  // totalAmount: string
+  // createdAt: Date
 }
 
 export type CreateOrderParams = {

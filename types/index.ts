@@ -129,9 +129,12 @@ export type GetOrdersByEventParams = {
 }
 
 export type GetOrdersByUserParams = {
-  userId: string | null
+  // userId: string | null
+  // limit?: number
+  // page: string | number | null
+  userId: string
   limit?: number
-  page: string | number | null
+  page: string | number
 }
 
 // ====== URL QUERY PARAMS

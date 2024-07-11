@@ -20,7 +20,10 @@ import {
 } from "@/components/ui/select";
 import Category, { ICategory } from "@/lib/database/models/category.model";
 import { Input } from "../ui/input";
-import { createCategory, getAllCategories } from "@/lib/actions/category.actions";
+import {
+  createCategory,
+  getAllCategories,
+} from "@/lib/actions/category.actions";
 
 type Dropdownprops = {
   value?: string;
@@ -43,10 +46,10 @@ const Dropdown = ({ value, onChangeHandler }: Dropdownprops) => {
     const getCategories = async () => {
       const categoryList = await getAllCategories();
 
-      categoryList && setcategories(categoryList as ICategory[])
+      categoryList && setcategories(categoryList as ICategory[]);
     };
     getCategories();
-  },[]);
+  }, []);
 
   return (
     <Select onValueChange={onChangeHandler} defaultValue={value}>

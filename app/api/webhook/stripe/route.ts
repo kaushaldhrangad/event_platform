@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     event = stripe.webhooks.constructEvent(body, sig, endpointSecret);
   } catch (err) {
     return NextResponse.json({
-      message: "Webhook error Kausash kl",
+      message: "Webhook error",
       Error: err,
     });
   }

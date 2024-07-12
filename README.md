@@ -23,8 +23,6 @@ Video Quality is low because of size restrictions on GitHub.
 
 Built on Next.js 14, the events application is a comprehensive, full-stack platform for managing events. It serves as a hub, spotlighting diverse events taking place globally. Featuring seamless payment processing through Stripe, you can purchase tickets for any event or even initiate and manage your events.
 
-If you're getting started and need assistance or face any bugs, join our active Discord community with over 27k+ members. It's a place where people help each other out.
-
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
 - Node.js

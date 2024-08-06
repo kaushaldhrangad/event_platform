@@ -1,5 +1,5 @@
 ## Note
-This project isn't working online because Stripe can't accept payments in test mode. As a result, it's not generating an ID, and your tickets won't appear in the My Tickets section.
+In this Project, Stripe can't accept payments in test mode. As a result, it's not generating an ID, and your tickets won't appear in the My Tickets section.
 
 ## 🎬 Demo Video
 

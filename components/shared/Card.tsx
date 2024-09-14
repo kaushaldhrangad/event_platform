@@ -16,7 +16,12 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
   const { sessionClaims } = auth();
   const userId = sessionClaims?.userId as string;
 
-  const isEventCreator = userId === event.organizer._id.toString();
+  // const isEventCreator = userId === event.organizer._id.toString();
+
+  const isEventCreator =
+    event.organizer && event.organizer._id
+      ? userId === event.organizer._id.toString()
+      : false;
 
   return (
     <div className="group relative flex min-h-[380px] w-full max-w-[400px] flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all hover:shadow-lg md:min-h-[438px] ">
@@ -67,7 +72,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
 
         <div className="flex-between w-full">
           <p className="p-medium-14 text-grey-600 md:p-medium-16">
-            {event.organizer.firstName} {event.organizer.lastName}
+            {event.organizer?.firstName} {event.organizer?.lastName}
           </p>
 
           {hasOrderLink && (

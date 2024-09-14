@@ -1,6 +1,6 @@
-import { ClerkMiddlewareAuth, ClerkMiddlewareOptions, authMiddleware, clerkMiddleware } from "@clerk/nextjs/server";
+import { ClerkMiddlewareOptions, authMiddleware, clerkMiddleware } from "@clerk/nextjs/server";
 
-export default authMiddleware({
+export default clerkMiddleware({
   publicRoutes: [
     '/',
     '/events/:id',

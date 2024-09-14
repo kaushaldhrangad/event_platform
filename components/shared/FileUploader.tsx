@@ -1,31 +1,35 @@
-'use client'
+"use client";
 
-import { useCallback, Dispatch, SetStateAction } from 'react'
+import { useCallback, Dispatch, SetStateAction } from "react";
 // Removed the incorrect import
 // import type { FileWithPath } from '@uploadthing/react'
-import { useDropzone } from '@uploadthing/react/hooks'
-import { generateClientDropzoneAccept } from 'uploadthing/client'
+import { useDropzone } from "@uploadthing/react/hooks";
+import { generateClientDropzoneAccept } from "uploadthing/client";
 
-import { Button } from '@/components/ui/button'
-import { convertFileToUrl } from '@/lib/utils'
+import { Button } from "@/components/ui/button";
+import { convertFileToUrl } from "@/lib/utils";
 
 type FileUploaderProps = {
-  onFieldChange: (url: string) => void
-  imageUrl: string
-  setFiles: Dispatch<SetStateAction<File[]>>
-}
+  onFieldChange: (url: string) => void;
+  imageUrl: string;
+  setFiles: Dispatch<SetStateAction<File[]>>;
+};
 
-export function FileUploader({ imageUrl, onFieldChange, setFiles }: FileUploaderProps) {
+export function FileUploader({
+  imageUrl,
+  onFieldChange,
+  setFiles,
+}: FileUploaderProps) {
   // Use native File type
   const onDrop = useCallback((acceptedFiles: File[]) => {
-    setFiles(acceptedFiles)
-    onFieldChange(convertFileToUrl(acceptedFiles[0]))
-  }, [])
+    setFiles(acceptedFiles);
+    onFieldChange(convertFileToUrl(acceptedFiles[0]));
+  }, []);
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-    accept: 'image/*' ? generateClientDropzoneAccept(['image/*']) : undefined,
-  })
+    accept: "image/*" ? generateClientDropzoneAccept(["image/*"]) : undefined,
+  });
 
   return (
     <div
@@ -45,7 +49,12 @@ export function FileUploader({ imageUrl, onFieldChange, setFiles }: FileUploader
         </div>
       ) : (
         <div className="flex-center flex-col py-5 text-grey-500">
-          <img src="/assets/icons/upload.svg" width={77} height={77} alt="file upload" />
+          <img
+            src="/assets/icons/upload.svg"
+            width={77}
+            height={77}
+            alt="file upload"
+          />
           <h3 className="mb-2 mt-2">Drag photo here</h3>
           <p className="p-medium-12 mb-4">SVG, PNG, JPG</p>
           <Button type="button" className="rounded-full">
@@ -54,5 +63,5 @@ export function FileUploader({ imageUrl, onFieldChange, setFiles }: FileUploader
         </div>
       )}
     </div>
-  )
+  );
 }
